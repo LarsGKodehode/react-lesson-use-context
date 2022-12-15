@@ -5,13 +5,13 @@ import { useContext } from "react"
 import OurContext from "../contexts/OurContext"
 
 function Component2() {
-  const shouldRender = useContext(OurContext)
+  const context = useContext(OurContext)
 
   return (
     <div>
       <h2>Component2</h2>
       {
-        shouldRender &&
+        context.shouldRender &&
         <p>This should be conditionally rendered</p>
       }
     </div>

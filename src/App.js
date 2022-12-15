@@ -19,12 +19,22 @@ import logo from './logo.svg'
 function App() {
   const [ state, setState ] = useState(true)
 
+  function toggleState() {
+    setState(
+      (oldState) => !oldState
+    )
+  }
+
+  const context = {
+    shouldRender: state,
+    toggleState: toggleState
+  }
+
   return (
-    <OurContext.Provider value={state}>
+    <OurContext.Provider value={context}>
       <div className="App">
         <Header />
         <img src={logo} />
-        <button onClick={() => setState((oldState) => !oldState)}>Change state</button>
         <Main />
       </div>
     </OurContext.Provider>
